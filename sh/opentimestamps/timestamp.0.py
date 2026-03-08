@@ -2,7 +2,7 @@
 """
 OpenTimestamps integration for proof-of-existence / poor man's copyright.
 
-Not tested yet... just more brain storming....
+Not tested yet... just more brain/ai storming....
 """
 
 import os
