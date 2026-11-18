@@ -1,1 +1,26 @@
-embed
+# op::protect (embed + cloak)
+# ===========================
+# Active defense operation applied to master audio and stems prior to release.
+# Bridges passive proof-of-existence (`seal` / OpenTimestamps) with active
+# resistance against unauthorized AI scraping, voice/style cloning, and training.
+
+protect(master_audio, taxonomy_merkle_root, secret_key) -> protected_audio, metrics:
+
+  1. cloak (Psychoacoustic Adversarial Perturbation):
+     - Compute 24-band Zwicker Bark simultaneous masking envelope M(f, t) per STFT frame.
+     - Optimize spectral perturbation |delta(f, t)| <= M(f, t) * 10^(-margin_dB / 20)
+       via Projected Gradient Descent (PGD) to maximize divergence in:
+         a. Multi-resolution Log-Mel filterbanks (diffusion / spectrogram trainers)
+         b. High-quefrency cepstral / harmonic comb features (timbre & pitch encoders)
+         c. Mid-band group-delay micro-phase (<= 3.5 deg, disrupting neural vocoders/RVQ codecs)
+
+  2. embed (Survivable Provenance Watermark):
+     - Derive 64-bit commitment payload P = taxonomy_merkle_root[0:64].
+     - Generate 64 orthonormal CDMA carriers U (U @ U^T = I_64) in the 850 Hz - 4200 Hz
+       survivability band via keyed Walsh-Hadamard + QR orthogonalization.
+     - Apply Informed Subspace Projection (ISP) across differential DCT-II block pairs
+       so sign(U @ (c_even - c_odd)) == P with zero host self-interference.
+
+  3. verify (Blind / Semi-Blind Extraction):
+     - Project candidate audio onto U, recover 64-bit commitment P', compute bit accuracy
+       and null-hypothesis detection z-score (threshold: >= 5.0 sigma).

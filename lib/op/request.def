@@ -1,1 +1,10 @@
+# op::request
+# ===========
+# Verification, audit, or takedown/attribution request workflow against a suspect
+# track or AI dataset artifact.
 
+request(suspect_audio, manifest, secret_key) -> audit_report:
+  1. Extract 64-bit CDMA spread-spectrum watermark from suspect_audio.
+  2. Compute bit-match ratio and detection z-score (sigma) against manifest.watermark_payload_64bit.
+  3. Compare 256-bit perceptual spectral hash similarity against clean master & stems.
+  4. Verify .ots OpenTimestamps proof to establish prior art predating the suspect artifact.

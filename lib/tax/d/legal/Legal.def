@@ -1,1 +1,12 @@
+# Legal.def
+# =========
+# Machine-readable reservation of rights and AI training / scraping policy
+# compiled directly into the Taxonomy Merkle tree and watermark commitment.
 
+LegalProvisions {
+  rights_reservation : "ALL_RIGHTS_RESERVED"
+  ai_training_policy : "OPT-OUT / ADVERSARIALLY-PROTECTED / NO-AI-TRAINING"
+  eu_dsm_article_4   : "TDM_OPT_OUT_RESERVED"
+  voice_style_clone  : "PROHIBITED_WITHOUT_EXPLICIT_SIGNED_LICENSE"
+  enforcement_proofs : ["OpenTimestamps/Bitcoin", "CDMA-64bit-Subspace-Watermark", "Perceptual-Hash-256"]
+}

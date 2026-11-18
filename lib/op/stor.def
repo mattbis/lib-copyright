@@ -1,1 +1,8 @@
+# op::stor
+# ========
+# Persists the clean master (vaulted offline/encrypted), protected release master,
+# compiled .copyright.json manifest, and .ots blockchain proof across storage tiers.
 
+stor(bundle, proofs) -> storage_receipts:
+  - stor.0 (local/cold archive) : Clean master WAV + stems + secret CDMA key + .ots
+  - public distribution         : Protected master WAV (cloaked + watermarked) + public manifest

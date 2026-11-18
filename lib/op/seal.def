@@ -1,1 +1,9 @@
+# op::seal
+# ========
+# Cryptographically binds the compiled Taxonomy Merkle root, clean master digest,
+# and adversarially protected master digest to an immutable external timestamp proof.
 
+seal(bundle, protected_master) -> sealed_proof:
+  1. Sign bundle.merkle_root + sha256(protected_master) via internal::sign.
+  2. Submit commitment digest to OpenTimestamps calendars (Bitcoin blockchain anchor).
+  3. Emit detached .ots proof alongside the .copyright.json provenance manifest.

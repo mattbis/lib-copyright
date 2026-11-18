@@ -1,0 +1,56 @@
+{
+  "schema": "lib-copyright/v0.1-adversarial",
+  "created_utc": "2026-11-18T00:26:45.362896+00:00",
+  "files": {
+    "clean_master": "sine_440hz.wav",
+    "protected_master": "sine_440hz.protected.wav",
+    "sample_rate": 44100,
+    "subtype": "PCM_16",
+    "duration_sec": 4.0
+  },
+  "taxonomy": {
+    "author": "Matt (Test Suite)",
+    "publisher": "Self-Published",
+    "distributor": "Direct",
+    "jurisdiction_national": "GB",
+    "jurisdiction_international": "Berne-Convention-1886",
+    "industry_taxonomy": "Audio/Master-Recording",
+    "ai_training_policy": "OPT-OUT / ADVERSARIALLY-PROTECTED / NO-AI-TRAINING",
+    "location": {
+      "supercluster": "Laniakea",
+      "galaxy": "MilkyWay/OrionArm",
+      "body": "Sol-3/Earth",
+      "lat_lon_alt": [
+        51.5074,
+        -0.1278,
+        15.0
+      ],
+      "epoch_utc": "2026-11-18T00:26:44.288331+00:00"
+    }
+  },
+  "hashes": {
+    "merkle_root": "b92d5d63f3488ef4acf7eff008c07a148935391f5558abd02cb5ffcaac6b75a2",
+    "watermark_payload_64bit": "b92d5d63f3488ef4",
+    "clean_master_sha256": "df749299e39b3bb9f35c25f77abb137d1c6007943815f504d1a6708ebe04dd66",
+    "perceptual_spectral_hash": "eaea6aea6a626343436362e29c1c155766093919191d1d5d2b2b1b3729315aaa",
+    "protected_master_sha256": "d4a4649ec8aa0d11984bcf4bb9b4e358153f988d3046ed2f014e12c8578367f5"
+  },
+  "defense_metrics": {
+    "cloak_snr_db": 41.34,
+    "mel_feature_divergence_pct": 6.108,
+    "pgd_steps": 12,
+    "engine": "numpy-spectral-pgd",
+    "combined_master_snr_db": 33.9,
+    "watermark_self_check": {
+      "extracted_payload_64bit": "b92d5d63f3488ef4",
+      "mean_abs_projection": 3.322,
+      "block_pairs_analyzed": 43,
+      "expected_payload_64bit": "b92d5d63f3488ef4",
+      "bits_matched": "64/64",
+      "bit_accuracy_pct": 100.0,
+      "bit_error_rate": 0.0,
+      "global_detection_z_score": 26.39,
+      "verified": true
+    }
+  }
+}

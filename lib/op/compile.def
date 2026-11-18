@@ -1,1 +1,24 @@
-# compile any path ( which is a tree of stuff into a Taxonomy ) into a bundle
+# op::compile
+# ===========
+# Compiles any path (a tree of stems, project files, perceptual fingerprints,
+# and Taxonomy leaves) into a deterministic Merkle bundle (.copyright.json).
+
+compile(entity, taxonomy, assets[]) -> bundle:
+
+  leaves = [
+    H("0.author:"        || taxonomy.author),
+    H("1.publisher:"     || taxonomy.publisher),
+    H("2.distributor:"   || taxonomy.distributor),
+    H("6.national:"      || taxonomy.jurisdiction.national),
+    H("8.international:" || taxonomy.jurisdiction.international),
+    H("9.industry:"      || taxonomy.industry),
+    H("10.ai_policy:"    || taxonomy.legal.ai_training_policy),
+    H("11.perceptual:"   || unique.perceptual_spectral_hash(master)),
+    H("12.master_sha256:"|| sha256(master)),
+    H("13.universe_loc:" || universe.location_vector()),
+    ...for stem in assets.stems: H("stem.i:" || sha256(stem) || unique.perceptual(stem))
+  ]
+
+  merkle_root = build_merkle_tree(leaves)
+  watermark_payload_64bit = merkle_root[0..63]
+  return Bundle(merkle_root, watermark_payload_64bit, leaves)

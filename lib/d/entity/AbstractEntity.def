@@ -1,5 +1,15 @@
 /**
+ * AbstractEntity.def
+ *
+ * A copyright is formed from an originating Entity (Author / Creator / Collective)
+ * bound to a creative work at a verifiable spatiotemporal coordinate (`universe::location`)
+ * and sealed via cryptographic + perceptual proofs (`op::compile`, `op::protect`, `op::seal`).
+ */
 
-  a copyright is formed from 
-  
-**/
+entity AbstractEntity {
+  id          : Hash256
+  display     : String
+  public_key  : Ed25519PublicKey | Secp256k1PublicKey
+  watermark_k : HMACKeyDerivationPath
+  jurisdiction: Taxonomy.national
+}

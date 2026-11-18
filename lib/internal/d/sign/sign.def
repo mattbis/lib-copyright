@@ -1,1 +1,8 @@
+# internal::sign
+# ==============
+# Keyed HMAC / Ed25519 signing and deterministic PRNG carrier derivation
+# used by `op::protect` (to generate the 64 orthonormal CDMA carriers U)
+# and `op::seal` (to sign the `.copyright.json` manifest).
 
+sign_manifest(manifest_bytes, secret_key) -> hmac_sha256_hex
+derive_cdma_seed(secret_key, domain="lib-copyright-cdma-v1") -> uint64_seed

@@ -1,1 +1,11 @@
+# op::unique
+# ==========
+# Extracts invariant cryptographic and perceptual identifiers from an audio work
+# so ownership can be proven even after transcoding, resampling, or AI remixing.
 
+unique(audio_asset) -> identifiers:
+  1. exact_sha256      : Raw byte digest of the lossless master / stem.
+  2. perceptual_hash   : 256-bit temporal-spectral log-energy differential hash
+                         across 32 geometric sub-bands (80 Hz - 8 kHz).
+  3. stem_tree_digests : Per-stem harmonic/onset fingerprints to prove compositional
+                         derivation when stems are isolated or rearranged.

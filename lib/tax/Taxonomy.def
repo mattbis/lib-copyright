@@ -1,1 +1,20 @@
-# from your own structure, a Taxonomy structure. This is used to produce your various hashes
+# Taxonomy.def
+# ============
+# From your own structure, a Taxonomy tree is compiled to produce your various
+# cryptographic and perceptual path hashes (`lib/hash/d/README.md`).
+
+Taxonomy {
+  0. author        : EntityID / LegalOrPseudonymousName
+  1. publisher     : EntityID
+  2. distributor   : DistributionChannel
+  3. localiser     : LocaleCode
+  4. regional      : RegionCode
+  5. rational      : CreationIntent / WorkClassification
+  6. national      : ISO-3166-1 Jurisdiction
+  8. international : TreatyFramework (e.g. Berne-Convention-1886, WIPO-WPPT)
+  9. industry      : IndustryTaxonomy (e.g. Audio/Master-Recording, Stem/MIDI)
+  10. legal        : LegalProvisions (see d/legal/Legal.def — AI training opt-out & reservation)
+  11. unique       : PerceptualSpectralHash256 + StemMerkleRoot
+  12. crypto_proof : CleanMasterSHA256 + ProtectedMasterSHA256 + OpenTimestampsProof
+  13. universe_loc : UniversalLocationVector (see lib/universe/d/location.def)
+}
